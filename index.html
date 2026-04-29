@@ -8,607 +8,542 @@
         * {
             user-select: none;
             -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
         }
-
         body {
-            background: linear-gradient(145deg, #2e4a1f 0%, #1e3a0e 100%);
-            min-height: 100vh;
+            background: #1a3a0a;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Segoe UI', 'Comic Neue', 'Chalkboard SE', 'Press Start 2P', cursive, monospace;
+            min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 16px;
+            font-family: 'Segoe UI', system-ui, -apple-system, 'Press Start 2P', cursive, monospace;
         }
-
-        /* Главный экран */
-        .game-container {
-            max-width: 550px;
+        .container {
+            max-width: 500px;
             width: 100%;
-            background: #f9e7b3;
-            background-image: radial-gradient(circle at 10% 20%, rgba(255,215,140,0.4) 2%, transparent 2.5%);
-            background-size: 28px 28px;
-            border-radius: 80px 80px 60px 60px;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.4), inset 0 1px 4px rgba(255,255,200,0.8);
-            padding: 20px 20px 35px;
+            background: #f5e6b0;
+            border-radius: 60px 60px 50px 50px;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.4);
+            padding: 20px 16px 30px;
             text-align: center;
-            transition: 0.2s;
         }
-
         h1 {
             font-size: 2rem;
-            background: #5a3e1b;
+            background: #6b4c2c;
             display: inline-block;
-            padding: 12px 25px;
-            border-radius: 100px;
-            color: #ffec9f;
-            text-shadow: 3px 3px 0 #3b2a0f;
-            box-shadow: inset 0 -3px 0 #2f210c, 0 8px 12px rgba(0,0,0,0.2);
-            letter-spacing: 2px;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        .poop-counter {
-            background: #2d2210;
-            border-radius: 70px;
-            padding: 12px;
-            margin: 15px 0;
-            box-shadow: inset 0 2px 6px rgba(0,0,0,0.5), 0 5px 10px rgba(0,0,0,0.2);
-        }
-
-        .poop-number {
-            font-size: 4.8rem;
-            font-weight: bold;
-            background: #fdebb3;
+            padding: 8px 24px;
             border-radius: 50px;
-            display: inline-block;
-            padding: 5px 35px;
-            color: #5e3300;
-            font-family: monospace;
-            letter-spacing: 5px;
-            text-shadow: 2px 2px 0 #d4a373;
-            box-shadow: inset 0 0 0 3px #ffe3a3, 0 5px 0 #7a5a2e;
+            color: #ffefb9;
+            margin: 0 0 15px 0;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
-
-        .poop-icon {
-            font-size: 5rem;
-            filter: drop-shadow(6px 8px 0 rgba(0,0,0,0.2));
-            cursor: pointer;
-            transition: 0.07s linear;
-            display: inline-block;
+        .poop-main {
+            background: #2c2412;
+            border-radius: 50px;
+            padding: 15px;
             margin: 10px 0;
         }
-
-        .poop-icon:active {
-            transform: scale(0.88);
-            filter: drop-shadow(2px 3px 0 rgba(0,0,0,0.2));
+        .poop-number {
+            font-size: 3.8rem;
+            font-weight: bold;
+            background: #fff0c0;
+            display: inline-block;
+            padding: 8px 35px;
+            border-radius: 60px;
+            color: #5a2e00;
+            font-family: monospace;
+            word-break: break-word;
         }
-
-        .stats {
-            background: #ecdca8;
-            border-radius: 48px;
-            padding: 12px 18px;
+        .poop-emoji {
+            font-size: 5.5rem;
+            cursor: pointer;
+            transition: 0.05s linear;
+            display: inline-block;
+            margin: 10px 0;
+            filter: drop-shadow(4px 8px 0 rgba(0,0,0,0.2));
+        }
+        .poop-emoji:active {
+            transform: scale(0.87);
+        }
+        .stats-row {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 12px;
-            margin: 20 0;
+            gap: 10px;
+            background: #e9d7a3;
+            border-radius: 48px;
+            padding: 12px;
+            margin: 15px 0;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
         }
-
-        .stat-card {
-            background: #fff1cf;
-            border-radius: 2rem;
-            padding: 6px 14px;
+        .stat {
+            background: #fff2cf;
+            padding: 6px 12px;
+            border-radius: 30px;
             flex: 1;
             text-align: center;
-            box-shadow: inset 0 1px 2px white, 0 3px 5px rgba(0,0,0,0.1);
         }
-
-        .boost-btn {
-            background: #ffb347;
-            border: none;
-            font-size: 1.3rem;
-            font-weight: bold;
-            padding: 12px 20px;
-            border-radius: 60px;
-            font-family: inherit;
-            margin: 15px 0 5px;
-            box-shadow: 0 6px 0 #a45d1a;
-            transition: 0.07s linear;
-            cursor: pointer;
-            width: 100%;
-            color: #2e2415;
+        .boost-buttons {
+            display: flex;
+            gap: 12px;
+            margin: 15px 0;
         }
-
-        .boost-btn:active {
-            transform: translateY(3px);
-            box-shadow: 0 2px 0 #a45d1a;
-        }
-
-        .shop-item {
-            background: #ddb582;
-            margin: 14px 0;
+        .boost-card {
+            background: #ffbe76;
+            flex: 1;
+            border-radius: 50px;
             padding: 10px;
-            border-radius: 80px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #b4621a;
+            transition: 0.05s linear;
+        }
+        .boost-card:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #b4621a;
+        }
+        .shop-item {
+            background: #c9a87b;
+            margin: 12px 0;
+            padding: 10px 16px;
+            border-radius: 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: bold;
         }
-
-        button.buy {
-            background: #5d8736;
+        .buy-btn {
+            background: #4f7a2c;
             border: none;
-            padding: 8px 22px;
+            color: white;
+            padding: 8px 20px;
             border-radius: 40px;
             font-weight: bold;
-            color: white;
             cursor: pointer;
-            box-shadow: 0 2px 5px black;
         }
-
-        button.buy:active {
-            transform: scale(0.96);
-        }
-
-        .admin-panel {
-            margin-top: 25px;
-            background: #523f28;
-            border-radius: 48px;
-            padding: 12px;
-            color: #ffecb3;
-        }
-
-        .leaderboard {
-            background: #fcf0cf;
+        .admin-area {
+            background: #4a3922;
             border-radius: 40px;
             margin-top: 20px;
             padding: 12px;
+            color: #f9e4b7;
+        }
+        .leaderboard {
+            background: #fff2db;
+            border-radius: 40px;
+            margin-top: 18px;
+            padding: 10px;
             text-align: left;
-            color: #3e2a1a;
         }
-
-        .leaderboard h3 {
+        .leader-title {
             text-align: center;
-            margin: 0 0 10px;
+            font-weight: bold;
+            margin-bottom: 8px;
         }
-
         .leader-list {
-            max-height: 180px;
+            max-height: 170px;
             overflow-y: auto;
-            padding-right: 8px;
         }
-
-        .leader-item {
+        .leader-entry {
             display: flex;
             justify-content: space-between;
-            background: #ffe7b5;
-            margin: 6px 0;
+            background: #ffe6b3;
+            margin: 5px 0;
             padding: 6px 12px;
-            border-radius: 50px;
+            border-radius: 30px;
             font-weight: bold;
         }
-
-        input, button {
-            font-family: inherit;
-        }
-
-        .admin-login input {
+        input {
             padding: 8px;
-            border-radius: 2rem;
+            border-radius: 30px;
             border: none;
             text-align: center;
         }
-
         .hidden {
             display: none;
+        }
+        .timer-info {
+            font-family: monospace;
         }
     </style>
 </head>
 <body>
-<div class="game-container" id="app">
+<div class="container">
     <h1>💩 ВЫДАВИ КАКАШКУ! 💩</h1>
-    <div class="poop-counter">
-        <div class="poop-number" id="poopValue">💩 0</div>
+    
+    <div class="poop-main">
+        <div class="poop-number" id="poopDisplay">💩 0</div>
     </div>
-    <div class="poop-icon" id="clickPoop">
-        🕊️
+    
+    <div class="poop-emoji" id="clickPoop">🕊️</div>
+    
+    <div class="stats-row">
+        <div class="stat">💩 Кликов <span id="statClicks">0</span></div>
+        <div class="stat">🕊️ За клик <span id="statPerClick">1</span></div>
+        <div class="stat">⏱️ Авто <span id="statAuto">0.0</span></div>
+        <div class="stat">🕒 Время <span id="timer">0м 0с</span></div>
     </div>
-    <div class="stats">
-        <div class="stat-card">💩 Кликов <span id="clicksStat">0</span></div>
-        <div class="stat-card">🕊️ За клик <span id="perClickStat">1</span></div>
-        <div class="stat-card">⏱️ Авто <span id="autoStat">0.0</span>/с</div>
-        <div class="stat-card">🕒 Время <span id="timer">0м 0с</span></div>
+    
+    <div class="boost-buttons">
+        <div class="boost-card" id="boostX5">⚡ БУСТ x5 <span style="font-size:12px;">(10💩)</span></div>
+        <div class="boost-card" id="rainbowBoost">🌈 РАДУГА x5 <span style="font-size:12px;">(20💩)</span></div>
     </div>
-
-    <button class="boost-btn" id="boostBtn">⚡ БУСТ x5 (10💩)</button>
-
+    
     <div class="shop-item">
-        <span>🚽 Расстройство +1💩/клик</span>
-        <button class="buy" data-upgrade="click">💩 10000</button>
+        <span>🚽 Расстройство (+1💩/клик)</span>
+        <button class="buy-btn" data-upgrade="click">💩 10000</button>
     </div>
     <div class="shop-item">
-        <span>🤖 Авто-кликер +0.5💩/сек</span>
-        <button class="buy" data-upgrade="auto">💩 15000</button>
-    </div>
-    <div class="shop-item">
-        <span>🌈 Радужный скид 15% (на всё)</span>
-        <button class="buy" data-upgrade="rainbow">💩 15000</button>
+        <span>🤖 Авто-кликер (+0.5💩/сек)</span>
+        <button class="buy-btn" data-upgrade="auto">💩 15000</button>
     </div>
     <div class="shop-item">
         <span>🔐 Пароль от админки</span>
-        <button class="buy" data-upgrade="adminPassReveal">💩 10000000</button>
+        <button class="buy-btn" data-upgrade="adminPass">💩 10000000</button>
     </div>
-
-    <!-- Админ панель (скрыта, показ по паролю) -->
-    <div class="admin-panel" id="adminBlock">
-        <div id="adminLoginArea">
-            <div style="display: flex; gap: 10px; justify-content: center;">
-                <input type="text" id="adminPasswordInput" placeholder="пароль админа" style="flex:1">
-                <button id="adminLoginBtn">Войти</button>
+    
+    <!-- АДМИН ПАНЕЛЬ (пароль Артем202) -->
+    <div class="admin-area">
+        <div id="adminLoginZone">
+            <div style="display:flex; gap:8px;">
+                <input type="text" id="adminPwdInput" placeholder="пароль админа">
+                <button id="adminLoginButton" style="border-radius:30px; background:#f3c26b;">Войти</button>
             </div>
-            <div style="font-size: 12px; margin-top: 8px;">🔒 админ-панель</div>
+            <div style="font-size:11px;">🔒 админ-панель</div>
         </div>
-        <div id="adminControls" class="hidden">
-            <strong>👑 Админ-панель</strong><br>
-            <button id="resetLeaderboardBtn">♻️ Сброс доски лидеров</button>
-            <button id="addFakeLeaderBtn">➕ Добавить тест в лидеры</button>
-            <div style="font-size: 12px; margin-top: 5px;">*Игроки автоматически попадают в лидеры при сохранении</div>
+        <div id="adminTools" class="hidden">
+            <button id="resetLeaderBtn" style="background:#a5662a;">♻️ Сброс лидеров</button>
+            <button id="addTestLeaderBtn" style="background:#5f8b3a;">➕ Тест-лидер</button>
+            <div style="font-size:10px;">*Пароль: Артем202</div>
         </div>
     </div>
-
+    
     <!-- ДОСКА ЛИДЕРОВ ПО КАКАШКАМ -->
     <div class="leaderboard">
-        <h3>🏆 ДОСКА ЛИДЕРОВ (по какашкам) 🏆</h3>
-        <div id="leaderListContainer" class="leader-list">
-            <!-- динамический список -->
-            <div style="text-align:center;">загрузка...</div>
-        </div>
-        <div style="font-size: 12px; text-align:center; margin-top:5px;">топ-10 игроков</div>
+        <div class="leader-title">🏆 ДОСКА ЛИДЕРОВ (КАКАШКИ) 🏆</div>
+        <div id="leaderboardList" class="leader-list">загрузка...</div>
     </div>
 </div>
 
 <script>
-    // ----- ИГРОВАЯ ЛОГИКА -----
-    let poop = 0;            // текущие какашки
-    let clicksStat = 0;      // всего кликов (для статистики)
-    let clickPower = 1;      // какашек за клик
-    let autoPerSec = 0;      // авто-какашек в секунду
-    let rainbowOwned = false; // радужный скидка 15%
-    let adminPassword = "Артем202";
-    let adminAuthed = false;
-
-    // ----- ЛИДЕРЫ -----
-    let leaderboard = [];     // массив { name: string, poop: number }
-    let currentPlayerName = null; // имя игрока, спросим при старте
-
+    // ---------- ИГРА ----------
+    let poop = 0;
+    let totalClicks = 0;
+    let clickPower = 1;
+    let autoPower = 0;
+    let rainbowActive = false;     // радуга x5 (умножает клик на 5 временно на 30 сек)
+    let rainbowEndTime = 0;
+    let rainbowInterval = null;
+    
+    // админ
+    const ADMIN_PASS = "Артем202";
+    let adminLogged = false;
+    
+    // лидеры
+    let leaderboard = [];
+    let playerName = null;
+    
+    // DOM
+    const poopDisplay = document.getElementById("poopDisplay");
+    const statClicks = document.getElementById("statClicks");
+    const statPerClick = document.getElementById("statPerClick");
+    const statAuto = document.getElementById("statAuto");
+    const timerSpan = document.getElementById("timer");
+    const clickPoop = document.getElementById("clickPoop");
+    const boostX5 = document.getElementById("boostX5");
+    const rainbowBoostBtn = document.getElementById("rainbowBoost");
+    const adminLoginZone = document.getElementById("adminLoginZone");
+    const adminTools = document.getElementById("adminTools");
+    const adminPwdInput = document.getElementById("adminPwdInput");
+    const adminLoginButton = document.getElementById("adminLoginButton");
+    const resetLeaderBtn = document.getElementById("resetLeaderBtn");
+    const addTestLeaderBtn = document.getElementById("addTestLeaderBtn");
+    const leaderboardListDiv = document.getElementById("leaderboardList");
+    
     // время сессии
     let startTime = Date.now();
-    let timerInterval;
-
-    // DOM элементы
-    const poopSpan = document.getElementById("poopValue");
-    const clicksStatSpan = document.getElementById("clicksStat");
-    const perClickSpan = document.getElementById("perClickStat");
-    const autoStatSpan = document.getElementById("autoStat");
-    const timerSpan = document.getElementById("timer");
-    const clickPoopDiv = document.getElementById("clickPoop");
-    const boostBtn = document.getElementById("boostBtn");
-    const buyBtns = document.querySelectorAll(".buy");
-    const adminLoginArea = document.getElementById("adminLoginArea");
-    const adminControls = document.getElementById("adminControls");
-    const adminPasswordInput = document.getElementById("adminPasswordInput");
-    const adminLoginBtn = document.getElementById("adminLoginBtn");
-    const resetLeaderboardBtn = document.getElementById("resetLeaderboardBtn");
-    const addFakeLeaderBtn = document.getElementById("addFakeLeaderBtn");
-    const leaderListContainer = document.getElementById("leaderListContainer");
-
-    // вспомогательные функции
-    function formatPoop(value) {
-        return "💩 " + Math.floor(value);
-    }
-
+    let timerIntervalId;
+    
+    // авто-кликер
+    let autoIntervalId = null;
+    
     function updateUI() {
-        poopSpan.innerText = formatPoop(poop);
-        clicksStatSpan.innerText = clicksStat;
-        perClickSpan.innerText = clickPower;
-        autoStatSpan.innerText = autoPerSec.toFixed(1);
+        poopDisplay.innerText = "💩 " + Math.floor(poop);
+        statClicks.innerText = totalClicks;
+        let displayClickPower = clickPower;
+        if (rainbowActive && Date.now() < rainbowEndTime) displayClickPower = clickPower * 5;
+        statPerClick.innerText = displayClickPower;
+        statAuto.innerText = autoPower.toFixed(1);
     }
-
-    function applyRainbowDiscount(price) {
-        if (rainbowOwned) return Math.floor(price * 0.85);
-        return price;
+    
+    function addPoop(amount) {
+        poop += amount;
+        if (poop < 0) poop = 0;
+        updateUI();
+        saveGame();
+        updateLeaderboardForPlayer();
     }
-
-    // покупки (обновление клик пауэр и авто)
-    function tryBuyUpgrade(upgradeId) {
-        if (upgradeId === "click") {
-            let cost = applyRainbowDiscount(10000);
-            if (poop >= cost) {
-                poop -= cost;
+    
+    function handleClick() {
+        let gain = clickPower;
+        if (rainbowActive && Date.now() < rainbowEndTime) {
+            gain = clickPower * 5;
+        }
+        addPoop(gain);
+        totalClicks++;
+        updateUI();
+        // анимация
+        const emoji = document.querySelector(".poop-emoji");
+        emoji.style.transform = "scale(0.85)";
+        setTimeout(() => emoji.style.transform = "", 100);
+    }
+    
+    // буст x5 (стоит 10)
+    function boostNormal() {
+        let cost = 10;
+        if (poop >= cost) {
+            poop -= cost;
+            let bonus = clickPower * 5;
+            addPoop(bonus);
+            updateUI();
+        } else {
+            boostX5.style.opacity = "0.6";
+            setTimeout(() => boostX5.style.opacity = "1", 200);
+        }
+    }
+    
+    // радуга x5 на 30 секунд (стоит 20)
+    function activateRainbow() {
+        let cost = 20;
+        if (poop >= cost) {
+            poop -= cost;
+            if (rainbowInterval) clearInterval(rainbowInterval);
+            rainbowActive = true;
+            rainbowEndTime = Date.now() + 30000;
+            updateUI();
+            // таймер визуально
+            rainbowInterval = setInterval(() => {
+                if (Date.now() >= rainbowEndTime) {
+                    rainbowActive = false;
+                    clearInterval(rainbowInterval);
+                    rainbowInterval = null;
+                    updateUI();
+                } else {
+                    let remain = Math.ceil((rainbowEndTime - Date.now()) / 1000);
+                    rainbowBoostBtn.innerText = `🌈 РАДУГА x5 (${remain}с)`;
+                }
+            }, 200);
+            rainbowBoostBtn.innerText = "🌈 РАДУГА АКТИВНА!";
+            setTimeout(() => {
+                if (!rainbowActive) rainbowBoostBtn.innerText = "🌈 РАДУГА x5 (20💩)";
+                else rainbowBoostBtn.innerText = "🌈 x5 АКТИВНО";
+            }, 1500);
+        } else {
+            rainbowBoostBtn.style.opacity = "0.6";
+            setTimeout(() => rainbowBoostBtn.style.opacity = "1", 200);
+        }
+    }
+    
+    // покупки
+    function buyUpgrade(type) {
+        if (type === "click") {
+            if (poop >= 10000) {
+                poop -= 10000;
                 clickPower += 1;
                 updateUI();
-                saveGameToLocal();
+                saveGame();
                 return true;
-            } else return false;
-        } 
-        else if (upgradeId === "auto") {
-            let cost = applyRainbowDiscount(15000);
-            if (poop >= cost) {
-                poop -= cost;
-                autoPerSec += 0.5;
+            }
+        } else if (type === "auto") {
+            if (poop >= 15000) {
+                poop -= 15000;
+                autoPower += 0.5;
                 updateUI();
-                // перезапустим интервал авто-кликера
                 restartAutoInterval();
-                saveGameToLocal();
+                saveGame();
                 return true;
-            } else return false;
-        }
-        else if (upgradeId === "rainbow") {
-            let cost = 15000;
-            if (!rainbowOwned && poop >= cost) {
-                poop -= cost;
-                rainbowOwned = true;
+            }
+        } else if (type === "adminPass") {
+            if (poop >= 10000000) {
+                poop -= 10000000;
                 updateUI();
-                saveGameToLocal();
+                alert("🔑 Пароль от админ-панели: " + ADMIN_PASS);
+                saveGame();
                 return true;
-            } else return false;
-        }
-        else if (upgradeId === "adminPassReveal") {
-            let cost = 10000000;
-            if (poop >= cost && !adminAuthed) {
-                poop -= cost;
-                updateUI();
-                alert("📜 Пароль от админ-панели: " + adminPassword);
-                saveGameToLocal();
-                return true;
-            } else if (poop < cost) return false;
-            else return false;
+            }
         }
         return false;
     }
-
-    // добавление какашек
-    function addPoop(amount) {
-        poop += amount;
-        if(poop < 0) poop = 0;
-        updateUI();
-        saveGameToLocal();
-        updateLeaderboardForPlayer(); // проверяем и обновляем доску
-    }
-
-    // клик по какашке
-    function handleClick() {
-        let gain = clickPower;
-        addPoop(gain);
-        clicksStat++;
-        // эффект сжатия
-        const poopIcon = document.querySelector(".poop-icon");
-        poopIcon.style.transform = "scale(0.85)";
-        setTimeout(() => { poopIcon.style.transform = ""; }, 100);
-        updateUI();
-    }
-
-    // Буст x5
-    function handleBoost() {
-        let cost = applyRainbowDiscount(10);
-        if (poop >= cost) {
-            poop -= cost;
-            let extra = clickPower * 5;
-            addPoop(extra);
-            updateUI();
-        } else {
-            // визуальный отказ
-            boostBtn.style.backgroundColor = "#c97e2a";
-            setTimeout(() => boostBtn.style.backgroundColor = "#ffb347", 200);
-        }
-    }
-
-    // авто-кликер
-    let autoInterval = null;
+    
     function restartAutoInterval() {
-        if (autoInterval) clearInterval(autoInterval);
-        if (autoPerSec > 0) {
-            autoInterval = setInterval(() => {
-                if (autoPerSec > 0) {
-                    addPoop(autoPerSec);
-                }
+        if (autoIntervalId) clearInterval(autoIntervalId);
+        if (autoPower > 0) {
+            autoIntervalId = setInterval(() => {
+                addPoop(autoPower);
             }, 1000);
         }
     }
-
-    // таймер сессии
-    function updateTimer() {
-        let elapsed = Math.floor((Date.now() - startTime) / 1000);
-        let mins = Math.floor(elapsed / 60);
-        let secs = elapsed % 60;
-        timerSpan.innerText = `${mins}м ${secs}с`;
+    
+    // ----- ЛИДЕРЫ -----
+    function getPlayerName() {
+        let saved = localStorage.getItem("poopPlayerName");
+        if (saved) return saved;
+        let defaultName = "Игрок" + Math.floor(Math.random() * 1000);
+        let name = prompt("👤 Введите имя для доски лидеров:", defaultName);
+        if (!name) name = "Аноним💩";
+        name = name.slice(0, 14);
+        localStorage.setItem("poopPlayerName", name);
+        return name;
     }
-
-    // ----- ЛИДЕРЫ (localStorage + имя игрока) -----
-    function initPlayerName() {
-        let savedName = localStorage.getItem("poopPlayerName");
-        if (savedName) {
-            currentPlayerName = savedName;
-        } else {
-            let defaultName = "Какашкодел" + Math.floor(Math.random() * 1000);
-            currentPlayerName = prompt("👤 Введите ваше имя для доски лидеров:", defaultName);
-            if (!currentPlayerName || currentPlayerName.trim() === "") currentPlayerName = "Аноним💩";
-            currentPlayerName = currentPlayerName.slice(0, 16);
-            localStorage.setItem("poopPlayerName", currentPlayerName);
-        }
-    }
-
+    
     function loadLeaderboard() {
         let stored = localStorage.getItem("poopLeaderboard");
         if (stored) {
             leaderboard = JSON.parse(stored);
         } else {
-            // демо-лидеры
             leaderboard = [
-                { name: "Какашатор", poop: 280000 },
-                { name: "ТурбоКактус", poop: 157000 },
-                { name: "Сантехник", poop: 89400 }
+                { name: "Артём", poop: 179999999999999 },
+                { name: "КакашныйКороль", poop: 4200000 },
+                { name: "ТурбоСтул", poop: 892000 }
             ];
-            saveLeaderboard();
         }
         renderLeaderboard();
     }
-
+    
     function saveLeaderboard() {
         localStorage.setItem("poopLeaderboard", JSON.stringify(leaderboard));
     }
-
+    
+    function renderLeaderboard() {
+        if (!leaderboardListDiv) return;
+        let sorted = [...leaderboard].sort((a,b) => b.poop - a.poop).slice(0, 10);
+        if (sorted.length === 0) {
+            leaderboardListDiv.innerHTML = "<div>нет записей</div>";
+            return;
+        }
+        let html = "";
+        sorted.forEach((entry, idx) => {
+            let medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : `${idx+1}`;
+            html += `<div class="leader-entry"><span>${medal} ${entry.name}</span><span>💩 ${entry.poop.toLocaleString()}</span></div>`;
+        });
+        leaderboardListDiv.innerHTML = html;
+    }
+    
     function updateLeaderboardForPlayer() {
-        if (!currentPlayerName) return;
-        // поиск игрока
-        let existing = leaderboard.find(entry => entry.name === currentPlayerName);
+        if (!playerName) return;
+        let existing = leaderboard.find(l => l.name === playerName);
         if (existing) {
             existing.poop = Math.floor(poop);
         } else {
-            leaderboard.push({ name: currentPlayerName, poop: Math.floor(poop) });
+            leaderboard.push({ name: playerName, poop: Math.floor(poop) });
         }
-        // сортировка по убыванию
         leaderboard.sort((a,b) => b.poop - a.poop);
-        // оставляем топ-20 (не более, но покажем топ-10)
         if (leaderboard.length > 20) leaderboard = leaderboard.slice(0,20);
         saveLeaderboard();
         renderLeaderboard();
     }
-
-    function renderLeaderboard() {
-        if (!leaderListContainer) return;
-        let topTen = leaderboard.slice(0,10);
-        if (topTen.length === 0) {
-            leaderListContainer.innerHTML = "<div style='text-align:center;'>нет записей</div>";
-            return;
-        }
-        let html = "";
-        topTen.forEach((item, idx) => {
-            let medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : "   ";
-            let nameDisplay = item.name.length > 12 ? item.name.slice(0,10)+".." : item.name;
-            html += `<div class="leader-item"><span>${medal} ${nameDisplay}</span><span>💩 ${item.poop.toLocaleString()}</span></div>`;
-        });
-        leaderListContainer.innerHTML = html;
-        // если текущий игрок не в топ-10, показываем его строку отдельно?
-        let currentInTop = leaderboard.findIndex(l => l.name === currentPlayerName);
-        if (currentInTop >= 10 && currentPlayerName) {
-            let cur = leaderboard[currentInTop];
-            leaderListContainer.innerHTML += `<div class="leader-item" style="background:#ffe0a3;"><span>🔸 ${currentPlayerName}</span><span>💩 ${cur.poop.toLocaleString()}</span></div>`;
-        }
-    }
-
-    // сброс доски лидеров (админ)
-    function adminResetLeaderboard() {
-        if (!adminAuthed) return;
-        leaderboard = [];
-        // добавляем текущего игрока с его какашками
-        if (currentPlayerName) {
-            leaderboard.push({ name: currentPlayerName, poop: Math.floor(poop) });
-        }
-        saveLeaderboard();
-        renderLeaderboard();
-    }
-
-    function adminAddFakeEntry() {
-        if (!adminAuthed) return;
-        let fakeName = "Чит#" + Math.floor(Math.random()*1000);
-        let fakePoop = Math.floor(Math.random() * 500000);
-        leaderboard.push({ name: fakeName, poop: fakePoop });
-        leaderboard.sort((a,b)=> b.poop - a.poop);
-        if(leaderboard.length > 20) leaderboard = leaderboard.slice(0,20);
-        saveLeaderboard();
-        renderLeaderboard();
-    }
-
-    // сохранение всей игры (какашки, кликпавер, авто, радуга, кликстат)
-    function saveGameToLocal() {
-        let save = {
-            poop: poop,
-            clicksStat: clicksStat,
-            clickPower: clickPower,
-            autoPerSec: autoPerSec,
-            rainbowOwned: rainbowOwned,
-            playerName: currentPlayerName
-        };
-        localStorage.setItem("poopSaveGame", JSON.stringify(save));
-        // обновляем лидерборд от текущего значения какашек
-        updateLeaderboardForPlayer();
-    }
-
-    function loadGameFromLocal() {
-        let saved = localStorage.getItem("poopSaveGame");
-        if (saved) {
-            let data = JSON.parse(saved);
-            poop = data.poop || 0;
-            clicksStat = data.clicksStat || 0;
-            clickPower = data.clickPower || 1;
-            autoPerSec = data.autoPerSec || 0;
-            rainbowOwned = data.rainbowOwned || false;
-            if (data.playerName) currentPlayerName = data.playerName;
-            restartAutoInterval();
-            updateUI();
-        } else {
-            poop = 0;
-            clicksStat = 0;
-            clickPower = 1;
-            autoPerSec = 0;
-            rainbowOwned = false;
-            updateUI();
-        }
-    }
-
-    // админ авторизация
-    function attemptAdminLogin() {
-        let pwd = adminPasswordInput.value.trim();
-        if (pwd === adminPassword) {
-            adminAuthed = true;
-            adminLoginArea.classList.add("hidden");
-            adminControls.classList.remove("hidden");
+    
+    // АДМИН ФУНКЦИИ
+    function adminLogin() {
+        let pwd = adminPwdInput.value;
+        if (pwd === ADMIN_PASS) {
+            adminLogged = true;
+            adminLoginZone.classList.add("hidden");
+            adminTools.classList.remove("hidden");
         } else {
             alert("Неверный пароль!");
         }
     }
-
+    
+    function adminResetLeaderboard() {
+        if (!adminLogged) return;
+        leaderboard = [];
+        if (playerName) leaderboard.push({ name: playerName, poop: Math.floor(poop) });
+        saveLeaderboard();
+        renderLeaderboard();
+    }
+    
+    function adminAddFakeLeader() {
+        if (!adminLogged) return;
+        let fake = { name: "Тест#" + Math.floor(Math.random()*999), poop: Math.floor(Math.random()*5000000) };
+        leaderboard.push(fake);
+        leaderboard.sort((a,b) => b.poop - a.poop);
+        if (leaderboard.length > 20) leaderboard = leaderboard.slice(0,20);
+        saveLeaderboard();
+        renderLeaderboard();
+    }
+    
+    // СОХРАНЕНИЕ ИГРЫ
+    function saveGame() {
+        let save = {
+            poop: poop,
+            totalClicks: totalClicks,
+            clickPower: clickPower,
+            autoPower: autoPower,
+            playerName: playerName
+        };
+        localStorage.setItem("poopSaveGame", JSON.stringify(save));
+    }
+    
+    function loadGame() {
+        let saved = localStorage.getItem("poopSaveGame");
+        if (saved) {
+            let data = JSON.parse(saved);
+            poop = data.poop || 0;
+            totalClicks = data.totalClicks || 0;
+            clickPower = data.clickPower || 1;
+            autoPower = data.autoPower || 0;
+            if (data.playerName) playerName = data.playerName;
+            updateUI();
+            restartAutoInterval();
+        }
+    }
+    
+    // таймер
+    function updateTimer() {
+        let sec = Math.floor((Date.now() - startTime) / 1000);
+        let mins = Math.floor(sec / 60);
+        let secs = sec % 60;
+        timerSpan.innerText = `${mins}м ${secs}с`;
+    }
+    
     // инициализация
     function init() {
-        initPlayerName();
-        loadGameFromLocal();
+        playerName = getPlayerName();
+        loadGame();
         loadLeaderboard();
         updateUI();
         updateTimer();
-        timerInterval = setInterval(updateTimer, 1000);
+        timerIntervalId = setInterval(updateTimer, 1000);
         restartAutoInterval();
-
-        // события
-        clickPoopDiv.addEventListener("click", handleClick);
-        boostBtn.addEventListener("click", handleBoost);
-        buyBtns.forEach(btn => {
+        
+        clickPoop.addEventListener("click", handleClick);
+        boostX5.addEventListener("click", boostNormal);
+        rainbowBoostBtn.addEventListener("click", activateRainbow);
+        
+        document.querySelectorAll(".buy-btn").forEach(btn => {
             btn.addEventListener("click", (e) => {
-                let upgrade = btn.getAttribute("data-upgrade");
-                let success = tryBuyUpgrade(upgrade);
+                let type = btn.getAttribute("data-upgrade");
+                let success = buyUpgrade(type);
                 if (!success) {
-                    btn.style.backgroundColor = "#b3413a";
-                    setTimeout(() => btn.style.backgroundColor = "#5d8736", 250);
+                    btn.style.backgroundColor = "#a13a2a";
+                    setTimeout(() => btn.style.backgroundColor = "#4f7a2c", 200);
                 } else {
-                    // эффект
                     btn.style.transform = "scale(0.95)";
                     setTimeout(() => btn.style.transform = "", 100);
-                    updateUI();
                 }
+                updateUI();
             });
         });
-
-        adminLoginBtn.addEventListener("click", attemptAdminLogin);
-        if (resetLeaderboardBtn) resetLeaderboardBtn.addEventListener("click", adminResetLeaderboard);
-        if (addFakeLeaderBtn) addFakeLeaderBtn.addEventListener("click", adminAddFakeEntry);
-
-        // если уже ранее был авторизован по флагу? нет, но проверка через локал не нужна
+        
+        adminLoginButton.addEventListener("click", adminLogin);
+        resetLeaderBtn.addEventListener("click", adminResetLeaderboard);
+        addTestLeaderBtn.addEventListener("click", adminAddFakeLeader);
     }
-
+    
     init();
 </script>
 </body>
