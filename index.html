@@ -2,574 +2,614 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Brawl Stars Fan Hub — Арена бойцов</title>
-    <!-- Подключение шрифта Google Fonts для стильного вида -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>💩 ВЫДАВИ КАКАШКУ! 💩</title>
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(145deg, #0b0f1c 0%, #0a0e1a 100%);
-            color: #fff;
-            scroll-behavior: smooth;
-        }
-
-        /* Кастомный скролл */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #141b2b;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #f5b042;
-            border-radius: 10px;
-        }
-
-        /* Анимация свечения */
-        @keyframes glowPulse {
-            0% { text-shadow: 0 0 2px #ffd966, 0 0 5px #ffb347; }
-            100% { text-shadow: 0 0 10px #ffdd77, 0 0 15px #ffaa33; }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-8px); }
-        }
-
-        @keyframes slideUpFade {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 20px 30px;
-        }
-
-        /* Шапка */
-        .header {
+            background: linear-gradient(145deg, #2e4a1f 0%, #1e3a0e 100%);
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px 0 30px;
-            border-bottom: 2px solid rgba(245, 176, 66, 0.3);
+            font-family: 'Segoe UI', 'Comic Neue', 'Chalkboard SE', 'Press Start 2P', cursive, monospace;
+            margin: 0;
+            padding: 20px;
         }
 
-        .logo h1 {
-            font-size: 2rem;
-            background: linear-gradient(135deg, #FFD966, #FFA41F);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.5px;
-        }
-        .logo span {
-            font-size: 0.9rem;
-            color: #aab3cf;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-        }
-        .nav-links a {
-            color: #e2e8f0;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.2s;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 5px;
-        }
-        .nav-links a:hover {
-            color: #F5B042;
-            border-bottom-color: #F5B042;
-        }
-
-        /* Hero секция */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 35px;
-            margin: 55px 0 70px;
-        }
-        .hero-text {
-            flex: 1;
-            animation: slideUpFade 0.7s ease-out;
-        }
-        .hero-text h2 {
-            font-size: 3.4rem;
-            font-weight: 800;
-            line-height: 1.2;
-            background: linear-gradient(to right, #fff2cf, #FFD966);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .hero-text p {
-            font-size: 1.2rem;
-            margin: 20px 0 28px;
-            color: #cbd5e6;
+        /* Главный экран */
+        .game-container {
             max-width: 550px;
-        }
-        .btn-group {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            padding: 12px 32px;
-            border-radius: 60px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all 0.2s;
-            display: inline-block;
-            font-size: 1rem;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-primary {
-            background: linear-gradient(95deg, #F5B042, #FF9500);
-            color: #1A1F2E;
-            box-shadow: 0 8px 18px rgba(245, 176, 66, 0.3);
-        }
-        .btn-primary:hover {
-            transform: scale(1.03);
-            box-shadow: 0 12px 22px rgba(245, 176, 66, 0.5);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #F5B042;
-            color: #F5B042;
-        }
-        .btn-outline:hover {
-            background: rgba(245, 176, 66, 0.15);
-            transform: scale(1.02);
-        }
-        .hero-card {
-            flex: 1;
-            background: rgba(25, 33, 48, 0.7);
-            backdrop-filter: blur(6px);
-            border-radius: 42px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid rgba(245, 176, 66, 0.4);
-            animation: float 3s ease-in-out infinite alternate;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.5);
-        }
-        .hero-card img {
             width: 100%;
-            max-width: 280px;
-            filter: drop-shadow(0 0 10px #ffad38);
+            background: #f9e7b3;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255,215,140,0.4) 2%, transparent 2.5%);
+            background-size: 28px 28px;
+            border-radius: 80px 80px 60px 60px;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.4), inset 0 1px 4px rgba(255,255,200,0.8);
+            padding: 20px 20px 35px;
+            text-align: center;
+            transition: 0.2s;
         }
-        .hero-card p {
+
+        h1 {
+            font-size: 2rem;
+            background: #5a3e1b;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 100px;
+            color: #ffec9f;
+            text-shadow: 3px 3px 0 #3b2a0f;
+            box-shadow: inset 0 -3px 0 #2f210c, 0 8px 12px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .poop-counter {
+            background: #2d2210;
+            border-radius: 70px;
+            padding: 12px;
+            margin: 15px 0;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.5), 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+        .poop-number {
+            font-size: 4.8rem;
+            font-weight: bold;
+            background: #fdebb3;
+            border-radius: 50px;
+            display: inline-block;
+            padding: 5px 35px;
+            color: #5e3300;
+            font-family: monospace;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 0 #d4a373;
+            box-shadow: inset 0 0 0 3px #ffe3a3, 0 5px 0 #7a5a2e;
+        }
+
+        .poop-icon {
+            font-size: 5rem;
+            filter: drop-shadow(6px 8px 0 rgba(0,0,0,0.2));
+            cursor: pointer;
+            transition: 0.07s linear;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .poop-icon:active {
+            transform: scale(0.88);
+            filter: drop-shadow(2px 3px 0 rgba(0,0,0,0.2));
+        }
+
+        .stats {
+            background: #ecdca8;
+            border-radius: 48px;
+            padding: 12px 18px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 20 0;
             font-weight: bold;
             font-size: 1.2rem;
-            margin-top: 12px;
         }
 
-        /* Секция бойцов */
-        .section-title {
-            font-size: 2.2rem;
-            margin: 55px 0 25px;
-            position: relative;
-            display: inline-block;
-        }
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            width: 70px;
-            height: 4px;
-            background: #F5B042;
-            border-radius: 4px;
-        }
-        
-        .brawlers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 30px;
-            margin: 30px 0 30px;
-        }
-        .brawler-card {
-            background: linear-gradient(145deg, #131b2b, #0e1422);
-            border-radius: 28px;
-            padding: 24px 18px 20px;
-            transition: 0.25s ease;
-            border: 1px solid #2a3448;
+        .stat-card {
+            background: #fff1cf;
+            border-radius: 2rem;
+            padding: 6px 14px;
+            flex: 1;
             text-align: center;
-            cursor: pointer;
-        }
-        .brawler-card:hover {
-            transform: translateY(-10px);
-            border-color: #F5B042;
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
-        }
-        .brawler-icon {
-            font-size: 65px;
-            background: #1f2a3e;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 18px;
-            border-radius: 50%;
-            box-shadow: inset 0 0 8px #00000044, 0 10px 20px rgba(0,0,0,0.3);
-        }
-        .brawler-name {
-            font-size: 1.7rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-        .brawler-rarity {
-            font-size: 0.8rem;
-            background: #F5B04222;
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 40px;
-            margin: 10px 0;
-            color: #FFD966;
-        }
-        .brawler-desc {
-            color: #9aa9c2;
-            font-size: 0.85rem;
-            margin: 8px 0;
-        }
-        .power-stats {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            box-shadow: inset 0 1px 2px white, 0 3px 5px rgba(0,0,0,0.1);
         }
 
-        /* карта и новости */
-        .two-columns {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 35px;
-            margin: 50px 0;
-        }
-        .map-preview {
-            flex: 1.2;
-            background: #0f1625;
-            border-radius: 42px;
-            padding: 24px;
-            border: 1px solid #2a344a;
-        }
-        .map-preview h3 {
-            font-size: 1.6rem;
-        }
-        .mini-map {
-            background: #1a2336;
-            border-radius: 28px;
-            padding: 20px;
-            margin-top: 18px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .map-tile {
-            background: #2c3a55;
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-        }
-        .news-side {
-            flex: 0.9;
-            background: #0e1424cc;
-            backdrop-filter: blur(4px);
-            border-radius: 42px;
-            padding: 24px;
-            border: 1px solid #F5B04255;
-        }
-        .news-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-        .news-list li {
-            padding: 15px 0;
-            border-bottom: 1px solid #1f2a3a;
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-        .news-badge {
-            background: #F5B042;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .footer {
-            margin-top: 70px;
-            text-align: center;
-            padding: 35px 0;
-            border-top: 1px solid #1e273c;
-            color: #7f8aa8;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 780px) {
-            .container { padding: 15px 20px; }
-            .hero-text h2 { font-size: 2.3rem; }
-            .section-title { font-size: 1.8rem; }
-        }
-
-        button {
-            background: none;
+        .boost-btn {
+            background: #ffb347;
             border: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 60px;
+            font-family: inherit;
+            margin: 15px 0 5px;
+            box-shadow: 0 6px 0 #a45d1a;
+            transition: 0.07s linear;
+            cursor: pointer;
+            width: 100%;
+            color: #2e2415;
+        }
+
+        .boost-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #a45d1a;
+        }
+
+        .shop-item {
+            background: #ddb582;
+            margin: 14px 0;
+            padding: 10px;
+            border-radius: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        button.buy {
+            background: #5d8736;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 2px 5px black;
+        }
+
+        button.buy:active {
+            transform: scale(0.96);
+        }
+
+        .admin-panel {
+            margin-top: 25px;
+            background: #523f28;
+            border-radius: 48px;
+            padding: 12px;
+            color: #ffecb3;
+        }
+
+        .leaderboard {
+            background: #fcf0cf;
+            border-radius: 40px;
+            margin-top: 20px;
+            padding: 12px;
+            text-align: left;
+            color: #3e2a1a;
+        }
+
+        .leaderboard h3 {
+            text-align: center;
+            margin: 0 0 10px;
+        }
+
+        .leader-list {
+            max-height: 180px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .leader-item {
+            display: flex;
+            justify-content: space-between;
+            background: #ffe7b5;
+            margin: 6px 0;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        input, button {
+            font-family: inherit;
+        }
+
+        .admin-login input {
+            padding: 8px;
+            border-radius: 2rem;
+            border: none;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <div class="header">
-        <div class="logo">
-            <h1>⚡ BRAWL STARS ⚡</h1>
-            <span>Арена легендарных бойцов</span>
-        </div>
-        <div class="nav-links">
-            <a href="#">Главная</a>
-            <a href="#brawlers">Бойцы</a>
-            <a href="#maps">Карты</a>
-            <a href="#">События</a>
-        </div>
+<div class="game-container" id="app">
+    <h1>💩 ВЫДАВИ КАКАШКУ! 💩</h1>
+    <div class="poop-counter">
+        <div class="poop-number" id="poopValue">💩 0</div>
+    </div>
+    <div class="poop-icon" id="clickPoop">
+        🕊️
+    </div>
+    <div class="stats">
+        <div class="stat-card">💩 Кликов <span id="clicksStat">0</span></div>
+        <div class="stat-card">🕊️ За клик <span id="perClickStat">1</span></div>
+        <div class="stat-card">⏱️ Авто <span id="autoStat">0.0</span>/с</div>
+        <div class="stat-card">🕒 Время <span id="timer">0м 0с</span></div>
     </div>
 
-    <div class="hero">
-        <div class="hero-text">
-            <h2>Врывайся в битву!</h2>
-            <p>Выбери своего бойца, уничтожай врагов и стань легендой на арене. Быстрые матчи, уникальные способности и эпичные моменты.</p>
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary" id="randomBrawlerBtn">🎲 Случайный боец</a>
-                <a href="#brawlers" class="btn btn-outline">📜 Все бойцы</a>
+    <button class="boost-btn" id="boostBtn">⚡ БУСТ x5 (10💩)</button>
+
+    <div class="shop-item">
+        <span>🚽 Расстройство +1💩/клик</span>
+        <button class="buy" data-upgrade="click">💩 10000</button>
+    </div>
+    <div class="shop-item">
+        <span>🤖 Авто-кликер +0.5💩/сек</span>
+        <button class="buy" data-upgrade="auto">💩 15000</button>
+    </div>
+    <div class="shop-item">
+        <span>🌈 Радужный скид 15% (на всё)</span>
+        <button class="buy" data-upgrade="rainbow">💩 15000</button>
+    </div>
+    <div class="shop-item">
+        <span>🔐 Пароль от админки</span>
+        <button class="buy" data-upgrade="adminPassReveal">💩 10000000</button>
+    </div>
+
+    <!-- Админ панель (скрыта, показ по паролю) -->
+    <div class="admin-panel" id="adminBlock">
+        <div id="adminLoginArea">
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <input type="text" id="adminPasswordInput" placeholder="пароль админа" style="flex:1">
+                <button id="adminLoginBtn">Войти</button>
             </div>
+            <div style="font-size: 12px; margin-top: 8px;">🔒 админ-панель</div>
         </div>
-        <div class="hero-card">
-            <!-- Эмодзи-имитация персонажа, плюс иконка -->
-            <div style="font-size: 110px;">🏆🤠</div>
-            <p>⭐ Шелли — легенда старта ⭐</p>
-            <div style="margin-top: 10px; font-size: 0.8rem;">«Заряжай и побеждай!»</div>
-        </div>
-    </div>
-
-
-    <!-- секция бойцов -->
-    <div id="brawlers">
-        <h2 class="section-title">🃏 Легендарные бойцы</h2>
-    </div>
-    <div class="brawlers-grid" id="brawlersGrid">
-        <!-- динамически заполним через JS, но для надежности продублируем статически позже (и JS добавит интерактив) -->
-    </div>
-
-    <!-- карта и новости -->
-    <div class="two-columns" id="maps">
-        <div class="map-preview">
-            <h3>🗺️ Актуальная карта: «Заброшенный ранчо»</h3>
-            <p>Песчаные дюны и укрытия — идеальное место для перестрелок. Режим: «Захват кристаллов»</p>
-            <div class="mini-map">
-                <div class="map-tile">🌵</div>
-                <div class="map-tile">🧱</div>
-                <div class="map-tile">🌿</div>
-                <div class="map-tile">💎</div>
-                <div class="map-tile">🏹</div>
-            </div>
-            <div style="margin-top: 20px; background:#1b2338; border-radius: 40px; padding: 12px; text-align: center;">
-                ⏳ Следующее событие: <strong>«Броуловский батл» через 2ч 15м</strong>
-            </div>
-        </div>
-        <div class="news-side">
-            <h3>📢 Новости арены</h3>
-            <ul class="news-list">
-                <li><span class="news-badge"></span> Новый боец «Инферно» уже близко! 🔥</li>
-                <li><span class="news-badge"></span> Обновление 2026: улучшенная графика и скины</li>
-                <li><span class="news-badge"></span> Турнирная таблица: Клуб "Дикие ястребы" в топе</li>
-                <li><span class="news-badge"></span> Временный режим: «Охота на сокровища» активен</li>
-            </ul>
-            <div style="margin-top: 32px; background: #F5B04220; border-radius: 32px; padding: 14px; text-align: center;">
-                💎 <strong>Код создателя: BRAWL2026</strong> — получи сундук!
-            </div>
+        <div id="adminControls" class="hidden">
+            <strong>👑 Админ-панель</strong><br>
+            <button id="resetLeaderboardBtn">♻️ Сброс доски лидеров</button>
+            <button id="addFakeLeaderBtn">➕ Добавить тест в лидеры</button>
+            <div style="font-size: 12px; margin-top: 5px;">*Игроки автоматически попадают в лидеры при сохранении</div>
         </div>
     </div>
 
-    <div class="footer">
-        <p>Этот сайт создан фанатами Brawl Stars. Все права на игру принадлежат Supercell. Неофициальный фан-проект.</p>
-        <p style="margin-top: 12px;">⚔️ Выбирай стратегию, сражайся и побеждай! ⚔️</p>
+    <!-- ДОСКА ЛИДЕРОВ ПО КАКАШКАМ -->
+    <div class="leaderboard">
+        <h3>🏆 ДОСКА ЛИДЕРОВ (по какашкам) 🏆</h3>
+        <div id="leaderListContainer" class="leader-list">
+            <!-- динамический список -->
+            <div style="text-align:center;">загрузка...</div>
+        </div>
+        <div style="font-size: 12px; text-align:center; margin-top:5px;">топ-10 игроков</div>
     </div>
 </div>
 
 <script>
-    // База данных бойцов в стиле Brawl Stars (имитация)
-    const brawlersData = [
-        { name: "Шелли", rarity: "Редкий", desc: "Мощный дробовик, ближний бой", power: "💥 5/10", icon: "🔫", special: "Сверхспособность: Супервыстрел" },
-        { name: "Кольт", rarity: "Редкий", desc: "Дальнобойный стрелок, высокая скорострельность", power: "🎯 7/10", icon: "🤠", special: "Серебряные пули" },
-        { name: "Булл", rarity: "Сверхредкий", desc: "Танк с дробовиком и рывком", power: "🛡️ 8/10", icon: "🐂", special: "Яростный заряд" },
-        { name: "Джесси", rarity: "Сверхредкий", desc: "Строит турель, электрические атаки", power: "⚡ 6/10", icon: "⚙️", special: "Шоковая пушка" },
-        { name: "Брок", rarity: "Эпический", desc: "Ракетная артиллерия, зона урона", power: "🚀 8/10", icon: "🧨", special: "Ракетный дождь" },
-        { name: "Леон", rarity: "Легендарный", desc: "Невидимость и скрытные атаки", power: "🐉 9/10", icon: "🍃", special: "Невидимый клинок" },
-        { name: "Спайк", rarity: "Легендарный", desc: "Кактус-контроллер, шипы разлетаются", power: "🌵 8/10", icon: "🌵", special: "Колючий удар" }
-    ];
+    // ----- ИГРОВАЯ ЛОГИКА -----
+    let poop = 0;            // текущие какашки
+    let clicksStat = 0;      // всего кликов (для статистики)
+    let clickPower = 1;      // какашек за клик
+    let autoPerSec = 0;      // авто-какашек в секунду
+    let rainbowOwned = false; // радужный скидка 15%
+    let adminPassword = "Артем202";
+    let adminAuthed = false;
 
-    const brawlersGrid = document.getElementById('brawlersGrid');
+    // ----- ЛИДЕРЫ -----
+    let leaderboard = [];     // массив { name: string, poop: number }
+    let currentPlayerName = null; // имя игрока, спросим при старте
 
-    function renderBrawlers() {
-        if (!brawlersGrid) return;
-        brawlersGrid.innerHTML = '';
-        brawlersData.forEach(b => {
-            const card = document.createElement('div');
-            card.className = 'brawler-card';
-            // добавим интерактив alert при клике
-            card.addEventListener('click', () => {
-                showBrawlerInfo(b.name, b.special, b.desc);
+    // время сессии
+    let startTime = Date.now();
+    let timerInterval;
+
+    // DOM элементы
+    const poopSpan = document.getElementById("poopValue");
+    const clicksStatSpan = document.getElementById("clicksStat");
+    const perClickSpan = document.getElementById("perClickStat");
+    const autoStatSpan = document.getElementById("autoStat");
+    const timerSpan = document.getElementById("timer");
+    const clickPoopDiv = document.getElementById("clickPoop");
+    const boostBtn = document.getElementById("boostBtn");
+    const buyBtns = document.querySelectorAll(".buy");
+    const adminLoginArea = document.getElementById("adminLoginArea");
+    const adminControls = document.getElementById("adminControls");
+    const adminPasswordInput = document.getElementById("adminPasswordInput");
+    const adminLoginBtn = document.getElementById("adminLoginBtn");
+    const resetLeaderboardBtn = document.getElementById("resetLeaderboardBtn");
+    const addFakeLeaderBtn = document.getElementById("addFakeLeaderBtn");
+    const leaderListContainer = document.getElementById("leaderListContainer");
+
+    // вспомогательные функции
+    function formatPoop(value) {
+        return "💩 " + Math.floor(value);
+    }
+
+    function updateUI() {
+        poopSpan.innerText = formatPoop(poop);
+        clicksStatSpan.innerText = clicksStat;
+        perClickSpan.innerText = clickPower;
+        autoStatSpan.innerText = autoPerSec.toFixed(1);
+    }
+
+    function applyRainbowDiscount(price) {
+        if (rainbowOwned) return Math.floor(price * 0.85);
+        return price;
+    }
+
+    // покупки (обновление клик пауэр и авто)
+    function tryBuyUpgrade(upgradeId) {
+        if (upgradeId === "click") {
+            let cost = applyRainbowDiscount(10000);
+            if (poop >= cost) {
+                poop -= cost;
+                clickPower += 1;
+                updateUI();
+                saveGameToLocal();
+                return true;
+            } else return false;
+        } 
+        else if (upgradeId === "auto") {
+            let cost = applyRainbowDiscount(15000);
+            if (poop >= cost) {
+                poop -= cost;
+                autoPerSec += 0.5;
+                updateUI();
+                // перезапустим интервал авто-кликера
+                restartAutoInterval();
+                saveGameToLocal();
+                return true;
+            } else return false;
+        }
+        else if (upgradeId === "rainbow") {
+            let cost = 15000;
+            if (!rainbowOwned && poop >= cost) {
+                poop -= cost;
+                rainbowOwned = true;
+                updateUI();
+                saveGameToLocal();
+                return true;
+            } else return false;
+        }
+        else if (upgradeId === "adminPassReveal") {
+            let cost = 10000000;
+            if (poop >= cost && !adminAuthed) {
+                poop -= cost;
+                updateUI();
+                alert("📜 Пароль от админ-панели: " + adminPassword);
+                saveGameToLocal();
+                return true;
+            } else if (poop < cost) return false;
+            else return false;
+        }
+        return false;
+    }
+
+    // добавление какашек
+    function addPoop(amount) {
+        poop += amount;
+        if(poop < 0) poop = 0;
+        updateUI();
+        saveGameToLocal();
+        updateLeaderboardForPlayer(); // проверяем и обновляем доску
+    }
+
+    // клик по какашке
+    function handleClick() {
+        let gain = clickPower;
+        addPoop(gain);
+        clicksStat++;
+        // эффект сжатия
+        const poopIcon = document.querySelector(".poop-icon");
+        poopIcon.style.transform = "scale(0.85)";
+        setTimeout(() => { poopIcon.style.transform = ""; }, 100);
+        updateUI();
+    }
+
+    // Буст x5
+    function handleBoost() {
+        let cost = applyRainbowDiscount(10);
+        if (poop >= cost) {
+            poop -= cost;
+            let extra = clickPower * 5;
+            addPoop(extra);
+            updateUI();
+        } else {
+            // визуальный отказ
+            boostBtn.style.backgroundColor = "#c97e2a";
+            setTimeout(() => boostBtn.style.backgroundColor = "#ffb347", 200);
+        }
+    }
+
+    // авто-кликер
+    let autoInterval = null;
+    function restartAutoInterval() {
+        if (autoInterval) clearInterval(autoInterval);
+        if (autoPerSec > 0) {
+            autoInterval = setInterval(() => {
+                if (autoPerSec > 0) {
+                    addPoop(autoPerSec);
+                }
+            }, 1000);
+        }
+    }
+
+    // таймер сессии
+    function updateTimer() {
+        let elapsed = Math.floor((Date.now() - startTime) / 1000);
+        let mins = Math.floor(elapsed / 60);
+        let secs = elapsed % 60;
+        timerSpan.innerText = `${mins}м ${secs}с`;
+    }
+
+    // ----- ЛИДЕРЫ (localStorage + имя игрока) -----
+    function initPlayerName() {
+        let savedName = localStorage.getItem("poopPlayerName");
+        if (savedName) {
+            currentPlayerName = savedName;
+        } else {
+            let defaultName = "Какашкодел" + Math.floor(Math.random() * 1000);
+            currentPlayerName = prompt("👤 Введите ваше имя для доски лидеров:", defaultName);
+            if (!currentPlayerName || currentPlayerName.trim() === "") currentPlayerName = "Аноним💩";
+            currentPlayerName = currentPlayerName.slice(0, 16);
+            localStorage.setItem("poopPlayerName", currentPlayerName);
+        }
+    }
+
+    function loadLeaderboard() {
+        let stored = localStorage.getItem("poopLeaderboard");
+        if (stored) {
+            leaderboard = JSON.parse(stored);
+        } else {
+            // демо-лидеры
+            leaderboard = [
+                { name: "Какашатор", poop: 280000 },
+                { name: "ТурбоКактус", poop: 157000 },
+                { name: "Сантехник", poop: 89400 }
+            ];
+            saveLeaderboard();
+        }
+        renderLeaderboard();
+    }
+
+    function saveLeaderboard() {
+        localStorage.setItem("poopLeaderboard", JSON.stringify(leaderboard));
+    }
+
+    function updateLeaderboardForPlayer() {
+        if (!currentPlayerName) return;
+        // поиск игрока
+        let existing = leaderboard.find(entry => entry.name === currentPlayerName);
+        if (existing) {
+            existing.poop = Math.floor(poop);
+        } else {
+            leaderboard.push({ name: currentPlayerName, poop: Math.floor(poop) });
+        }
+        // сортировка по убыванию
+        leaderboard.sort((a,b) => b.poop - a.poop);
+        // оставляем топ-20 (не более, но покажем топ-10)
+        if (leaderboard.length > 20) leaderboard = leaderboard.slice(0,20);
+        saveLeaderboard();
+        renderLeaderboard();
+    }
+
+    function renderLeaderboard() {
+        if (!leaderListContainer) return;
+        let topTen = leaderboard.slice(0,10);
+        if (topTen.length === 0) {
+            leaderListContainer.innerHTML = "<div style='text-align:center;'>нет записей</div>";
+            return;
+        }
+        let html = "";
+        topTen.forEach((item, idx) => {
+            let medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : "   ";
+            let nameDisplay = item.name.length > 12 ? item.name.slice(0,10)+".." : item.name;
+            html += `<div class="leader-item"><span>${medal} ${nameDisplay}</span><span>💩 ${item.poop.toLocaleString()}</span></div>`;
+        });
+        leaderListContainer.innerHTML = html;
+        // если текущий игрок не в топ-10, показываем его строку отдельно?
+        let currentInTop = leaderboard.findIndex(l => l.name === currentPlayerName);
+        if (currentInTop >= 10 && currentPlayerName) {
+            let cur = leaderboard[currentInTop];
+            leaderListContainer.innerHTML += `<div class="leader-item" style="background:#ffe0a3;"><span>🔸 ${currentPlayerName}</span><span>💩 ${cur.poop.toLocaleString()}</span></div>`;
+        }
+    }
+
+    // сброс доски лидеров (админ)
+    function adminResetLeaderboard() {
+        if (!adminAuthed) return;
+        leaderboard = [];
+        // добавляем текущего игрока с его какашками
+        if (currentPlayerName) {
+            leaderboard.push({ name: currentPlayerName, poop: Math.floor(poop) });
+        }
+        saveLeaderboard();
+        renderLeaderboard();
+    }
+
+    function adminAddFakeEntry() {
+        if (!adminAuthed) return;
+        let fakeName = "Чит#" + Math.floor(Math.random()*1000);
+        let fakePoop = Math.floor(Math.random() * 500000);
+        leaderboard.push({ name: fakeName, poop: fakePoop });
+        leaderboard.sort((a,b)=> b.poop - a.poop);
+        if(leaderboard.length > 20) leaderboard = leaderboard.slice(0,20);
+        saveLeaderboard();
+        renderLeaderboard();
+    }
+
+    // сохранение всей игры (какашки, кликпавер, авто, радуга, кликстат)
+    function saveGameToLocal() {
+        let save = {
+            poop: poop,
+            clicksStat: clicksStat,
+            clickPower: clickPower,
+            autoPerSec: autoPerSec,
+            rainbowOwned: rainbowOwned,
+            playerName: currentPlayerName
+        };
+        localStorage.setItem("poopSaveGame", JSON.stringify(save));
+        // обновляем лидерборд от текущего значения какашек
+        updateLeaderboardForPlayer();
+    }
+
+    function loadGameFromLocal() {
+        let saved = localStorage.getItem("poopSaveGame");
+        if (saved) {
+            let data = JSON.parse(saved);
+            poop = data.poop || 0;
+            clicksStat = data.clicksStat || 0;
+            clickPower = data.clickPower || 1;
+            autoPerSec = data.autoPerSec || 0;
+            rainbowOwned = data.rainbowOwned || false;
+            if (data.playerName) currentPlayerName = data.playerName;
+            restartAutoInterval();
+            updateUI();
+        } else {
+            poop = 0;
+            clicksStat = 0;
+            clickPower = 1;
+            autoPerSec = 0;
+            rainbowOwned = false;
+            updateUI();
+        }
+    }
+
+    // админ авторизация
+    function attemptAdminLogin() {
+        let pwd = adminPasswordInput.value.trim();
+        if (pwd === adminPassword) {
+            adminAuthed = true;
+            adminLoginArea.classList.add("hidden");
+            adminControls.classList.remove("hidden");
+        } else {
+            alert("Неверный пароль!");
+        }
+    }
+
+    // инициализация
+    function init() {
+        initPlayerName();
+        loadGameFromLocal();
+        loadLeaderboard();
+        updateUI();
+        updateTimer();
+        timerInterval = setInterval(updateTimer, 1000);
+        restartAutoInterval();
+
+        // события
+        clickPoopDiv.addEventListener("click", handleClick);
+        boostBtn.addEventListener("click", handleBoost);
+        buyBtns.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                let upgrade = btn.getAttribute("data-upgrade");
+                let success = tryBuyUpgrade(upgrade);
+                if (!success) {
+                    btn.style.backgroundColor = "#b3413a";
+                    setTimeout(() => btn.style.backgroundColor = "#5d8736", 250);
+                } else {
+                    // эффект
+                    btn.style.transform = "scale(0.95)";
+                    setTimeout(() => btn.style.transform = "", 100);
+                    updateUI();
+                }
             });
-            card.innerHTML = `
-                <div class="brawler-icon">${b.icon}</div>
-                <div class="brawler-name">${b.name}</div>
-                <div class="brawler-rarity">⭐ ${b.rarity}</div>
-                <div class="brawler-desc">${b.desc}</div>
-                <div class="power-stats">
-                    <span>💪 ${b.power}</span>
-                    <span>✨ ${b.special.substring(0, 18)}${b.special.length > 18 ? '..' : ''}</span>
-                </div>
-            `;
-            brawlersGrid.appendChild(card);
         });
+
+        adminLoginBtn.addEventListener("click", attemptAdminLogin);
+        if (resetLeaderboardBtn) resetLeaderboardBtn.addEventListener("click", adminResetLeaderboard);
+        if (addFakeLeaderBtn) addFakeLeaderBtn.addEventListener("click", adminAddFakeEntry);
+
+        // если уже ранее был авторизован по флагу? нет, но проверка через локал не нужна
     }
 
-    function showBrawlerInfo(name, special, desc) {
-        // простой тост / алерт, но с приятным стилем через всплывающее уведомление (сделаем красиво)
-        const toast = document.createElement('div');
-        toast.innerText = `⚡ ${name} | ${special} | «${desc}»`;
-        toast.style.position = 'fixed';
-        toast.style.bottom = '25px';
-        toast.style.left = '50%';
-        toast.style.transform = 'translateX(-50%)';
-        toast.style.backgroundColor = '#1F2937';
-        toast.style.color = '#F5B042';
-        toast.style.padding = '14px 28px';
-        toast.style.borderRadius = '60px';
-        toast.style.fontWeight = 'bold';
-        toast.style.boxShadow = '0 0 20px rgba(245,176,66,0.5)';
-        toast.style.zIndex = '999';
-        toast.style.backdropFilter = 'blur(8px)';
-        toast.style.border = '1px solid #F5B042';
-        toast.style.fontSize = '0.9rem';
-        document.body.appendChild(toast);
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => toast.remove(), 300);
-        }, 2200);
-    }
-
-    // случайный боец
-    const randomBtn = document.getElementById('randomBrawlerBtn');
-    if (randomBtn) {
-        randomBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const randomIndex = Math.floor(Math.random() * brawlersData.length);
-            const b = brawlersData[randomIndex];
-            showBrawlerInfo(b.name, b.special, b.desc);
-            // дополнительно анимируем подсветку карточки - найдём карточку с этим именем (необязательно)
-            const cards = document.querySelectorAll('.brawler-card');
-            for (let card of cards) {
-                if (card.querySelector('.brawler-name')?.innerText === b.name) {
-                    card.style.transition = '0.1s';
-                    card.style.transform = 'scale(1.02)';
-                    card.style.borderColor = '#ffcc66';
-                    setTimeout(() => { card.style.transform = ''; card.style.borderColor = ''; }, 500);
-                    break;
-                }
-            }
-        });
-    }
-
-    // плавная прокрутка к бойцам по ссылке
-    document.querySelectorAll('.nav-links a, .btn-outline').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const hash = this.getAttribute('href');
-            if(hash && hash !== '#' && hash.startsWith('#')) {
-                const targetId = hash.substring(1);
-                const target = document.getElementById(targetId);
-                if(target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            } else if (hash === '#') {
-                // просто заглушка для главной ссылки
-                if(this.innerText.includes('Главная')) {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth'});
-                }
-            }
-        });
-    });
-
-    // добавим обработчик кнопки "Все бойцы" в hero для плавного скролла
-    const allBrawlersBtn = document.querySelector('.btn-outline');
-    if(allBrawlersBtn && allBrawlersBtn.getAttribute('href') === '#brawlers') {
-        allBrawlersBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const section = document.getElementById('brawlers');
-            if(section) section.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
-    // эффект появления карточек с небольшой анимацией (добавим наблюдатель)
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('.brawler-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-        observer.observe(card);
-    });
-    
-    // инициализация рендера
-    renderBrawlers();
-    // повторно привяжем наблюдение после рендера
-    setTimeout(() => {
-        document.querySelectorAll('.brawler-card').forEach(card => {
-            if(card.style.opacity === '0') {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                observer.observe(card);
-            }
-        });
-    }, 50);
-
-    // добавим еще красивое вращение для hero-card (float уже есть)
-    // кнопка подписи пасхалка
-    console.log('Сайт Brawl Stars вдохновлён игрой — чисто фанатский проект, без копирования кода игры.');
+    init();
 </script>
 </body>
 </html>
